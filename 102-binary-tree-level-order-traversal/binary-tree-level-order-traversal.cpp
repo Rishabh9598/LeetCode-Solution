@@ -12,18 +12,15 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>> ans;
+        vector<vector<int>> result;
         if(!root){
-            return ans;
+            return result;
         }
-
         queue<TreeNode*> q;
         q.push(root);
-        
-       int count = 0;
+
         while(!q.empty()){
             vector<int> row;
-            count++;
             int size = q.size();
 
             for(int i=0; i<size; i++){
@@ -36,10 +33,9 @@ public:
                 if(curr->right){
                     q.push(curr->right);
                 }
-            }   
-            ans.push_back(row);
+            }
+            result.push_back(row);
         }
-        cout<<count;
-        return ans;
+        return result;
     }
 };
