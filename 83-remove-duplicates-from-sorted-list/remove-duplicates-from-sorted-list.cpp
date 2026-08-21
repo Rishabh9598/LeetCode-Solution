@@ -24,7 +24,6 @@ public:
                 prev->next = curr;
             }
             else{
-                cout<<prev->val<<", "<<curr->val<<endl;
                 prev->next = curr;
                 prev = curr;
                 curr = curr->next;
