@@ -12,9 +12,6 @@ public:
         }
         int total = sum + product;
 
-        if(num % total != 0){
-            return false;
-        }
-        return true;
+        return (num % total == 0);
     }
 };
