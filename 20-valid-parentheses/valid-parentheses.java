@@ -3,21 +3,17 @@ class Solution {
         Stack<Character> st = new Stack<>();
 
         for(int i = 0; i<s.length(); i++){
-            if(st.empty()){
+            if(s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '['){
                 st.push(s.charAt(i));
-            }
-            else if(s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '['){
-                st.push(s.charAt(i));
-            }else if(s.charAt(i) == ')' && st.peek() == '('){
-                st.pop();
-            }
-            else if(s.charAt(i) == '}' && st.peek() == '{'){
-                st.pop();
-            }
-            else if(s.charAt(i) == ']' && st.peek() == '['){
-                st.pop();
-            }else{
-                st.push(s.charAt(i));
+            }else if(s.charAt(i) == ')' || s.charAt(i) == '}' || s.charAt(i) == ']'){
+                if(st.empty()){
+                    return false;
+                }
+                if(s.charAt(i) == ')' && st.peek() != '(' || s.charAt(i) == '}' && st.peek() != '{' || s.charAt(i) == ']' && st.peek() != '['){
+                    return false;
+                }else {
+                    st.pop();
+                }
             }
         }
         return st.empty();
