@@ -12,7 +12,6 @@ public:
             
             if(value == 1){
                 return i;
-                break;
             }
         }
         return -1;
