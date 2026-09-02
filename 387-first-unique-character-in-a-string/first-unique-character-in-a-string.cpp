@@ -9,7 +9,7 @@ public:
 
         for(int i=0; i<s.size(); i++){
             int value = mp[s[i]];
-            cout<<value<<endl;
+            
             if(value == 1){
                 return i;
                 break;
