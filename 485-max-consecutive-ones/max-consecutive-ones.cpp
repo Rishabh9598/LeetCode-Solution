@@ -4,14 +4,31 @@ public:
         int n = nums.size();
         int maxCount = 0;
         int count =0;
+        int left = 0;
+        int right = 0;
 
-        for(int i=0; i<n; i++){
-            if(nums[i]==1){
+        while(left<n && right<n){
+           
+            if(nums[left] == 1 && nums[right] == 1){
+                right++;
                 count++;
-            }else{
-                count=0;
+                maxCount = max(maxCount, count);
+                continue;
             }
-            maxCount = max(count, maxCount);
+            if(nums[left] == 0){
+                left++;
+                right++;
+                count=0;
+            }else if(nums[right] == 0){
+                if(maxCount >= (n/2)){
+                    cout<<"isme Ayya";
+                    return maxCount;
+                }else{
+                    count = 0;
+                    left = right+1;
+                    right = left;
+                }
+            }
         }
         return maxCount;
     }
